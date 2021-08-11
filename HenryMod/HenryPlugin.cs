@@ -26,8 +26,8 @@ namespace HenryMod
         // if you don't change these you're giving permission to deprecate the mod-
         //  please change the names to your own stuff, thanks
         //   this shouldn't even have to be said
-        public const string MODUID = "com.DeveloperName.MyCharacterMod";
-        public const string MODNAME = "MyCharacterMod";
+        public const string MODUID = "com.KungandDev.BOTWLink";
+        public const string MODNAME = "BOTWLink";
         public const string MODVERSION = "1.0.0";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
@@ -36,30 +36,6 @@ namespace HenryMod
         internal List<SurvivorBase> Survivors = new List<SurvivorBase>();
 
         public static HenryPlugin instance;
-
-        private void Awake()
-        {
-            instance = this;
-
-            // load assets and read config
-            Modules.Assets.Initialize();
-            Modules.Config.ReadConfig();
-            Modules.States.RegisterStates(); // register states for networking
-            Modules.Buffs.RegisterBuffs(); // add and register custom buffs/debuffs
-            Modules.Projectiles.RegisterProjectiles(); // add and register custom projectiles
-            Modules.Tokens.AddTokens(); // register name tokens
-            Modules.ItemDisplays.PopulateDisplays(); // collect item display prefabs for use in our display rules
-
-            // survivor initialization
-            new MyCharacter().Initialize();
-
-            // now make a content pack and add it- this part will change with the next update
-            new Modules.ContentPacks().Initialize();
-
-            RoR2.ContentManagement.ContentManager.onContentPacksAssigned += LateSetup;
-
-            Hook();
-        }
 
         private void LateSetup(HG.ReadOnlyArray<RoR2.ContentManagement.ReadOnlyContentPack> obj)
         {

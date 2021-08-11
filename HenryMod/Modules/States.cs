@@ -1,7 +1,7 @@
 ﻿using HenryMod.SkillStates;
 using HenryMod.SkillStates.BaseStates;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 
 namespace HenryMod.Modules
 {
